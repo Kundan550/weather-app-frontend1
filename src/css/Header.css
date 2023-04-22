@@ -1,0 +1,19 @@
+.header{
+    padding: 30px 10px;
+}
+
+.header .head{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header .head .logo{
+    height: 100%;
+}
+
+.header .head .logoname{
+    font-size: 2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
