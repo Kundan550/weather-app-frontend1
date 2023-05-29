@@ -53,28 +53,9 @@ const Weathersearch = () => {
     
     const weathersearch = async(e)=>{
         e.preventDefault();
-        
-      
-        const response = await fetch(
-            `https://weather-backend-2lt1.onrender.com/getWeatherInfo/city?city=${placename}`,
-            {
-              method: "GET",
-              headers: new Headers({
-                'Accept': 'application/json',
-                'Content-Type': 'application/json;charset=utf-8'
-              })
-            }
-          );
-        // console.log(response);
-
-        
-
-        const result =  await response.json();
-       
-
-             console.log(result);
-        
-        if (result.code === 404) {
+        const data = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${placename}&units=metric&appid=45f89f08e9beaa33055f2be0c500f21f`)
+        const result = await data.json();
+        if (result.cod === '404') {
             return alert(result.message)
         }
         settemperature(result.main.temp);
